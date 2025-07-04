@@ -27,12 +27,11 @@ function App() {
     }
   }, []);
 
-const handleLogout = () => {
-  localStorage.removeItem("id_token");
-  // Es una buena práctica codificar la URI para asegurar que se interpreta correctamente.
-  const logoutUrl = `${domain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(redirectUri)}`;
-  window.location.href = logoutUrl;
-};
+  const handleLogout = () => {
+    localStorage.removeItem("id_token");
+    const logoutUrl = `${domain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(redirectUri)}`;
+    window.location.href = logoutUrl;
+  };
 
   return (
     <>
@@ -57,7 +56,7 @@ const handleLogout = () => {
             <div className="flag-item"><div className="flag peru"></div><div className="flag-label">Perú</div></div>
             <div className="flag-item"><div className="flag panama"></div><div className="flag-label">Panamá</div></div>
           </div>
-     </div>
+        </div>
       ) : (
         <Router>
           <div id="contenidoPrincipal">
@@ -71,10 +70,8 @@ const handleLogout = () => {
           </div>
         </Router>
       )}
-</>
+    </>
   );
 }
 
- 
 export default App;
-
